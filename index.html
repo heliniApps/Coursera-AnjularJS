@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!-- <!DOCTYPE html>
+ <html>
   <head>
     <meta charset="utf-8">
     <script src="app.js"></script>
@@ -16,5 +16,26 @@
       </div>
       <div id="output"></div>
     </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html ng-app="myFirstApp">
+  <head>
+    <meta charset="utf-8">
+    <!-- Script tags are processed in order of appearance.
+    angular.min.js is used inside app.js. Therefore, mentioned first.-->
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>My first AngularJS App</title>
+  </head>
+  <body>
+    <h2>This is my very first AngularJS App</h2>
+    <div ng-controller="myFirstController">
+      {{sayHello()}}
+      <input type="text" ng-model="name">
+      Inner value in the "name" field is {{name}}.
+    </div>
+
   </body>
 </html>

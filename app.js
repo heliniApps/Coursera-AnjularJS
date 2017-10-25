@@ -1,26 +1,24 @@
-var student = {
-  name: "",
-  type: "student"
-};
+// IIFE - immediately invoked function expression
+// Purpose:  no local variables bleed into Global Scope.
+(function(){
+'use strict';   // used to restrict accidentally creating global variables. (e.g: x="hi";)
 
-document.addEventListener('DOMContentLoaded', contentLoaded);
+    // one particular object in global scope ==> angular
+    // 'myFirstApp'  -- name of our application
+    // []  -- any dependencies
+    // module function --  returns the module instance.
+    angular.module('myFirstApp', [])
 
-function contentLoaded(event){
-  document.getElementById('name').addEventListener("keyup",keyUp);
-}
+    .controller('myFirstController', function($scope){
+      // 'myFirstController'   -- name of the controller to manage a part of the view.
+      // function ()  -- implements the functionality for the controller.
+      // These are then hooked to the HTML file.
 
-function keyUp(event){
-  calculateNumericOutput();
-}
+        $scope.name = "Helini";  // "$" is reserved in AngularJS. $scope is a global variable/scope given.
+        $scope.sayHello = function(){
+          return "Hello there!!";
+        };
+    });
 
-function calculateNumericOutput(){
-  student.name = document.getElementById('name').value;
 
-  var totalValue = 0;
-  for(var i=0; i<student.name.length; i++){
-    totalValue += student.name.charCodeAt(i);
-  }
-
-  var output = "Character value of your name is " + totalValue;
-  document.getElementById('output').innerText = output;
-}
+})();
