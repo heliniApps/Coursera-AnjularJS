@@ -1,41 +1,38 @@
-<!-- <!DOCTYPE html>
- <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="app.js"></script>
-    <style>body { font-size: 1.5em; }</style>
-    <title>Hello Coursera</title>
-  </head>
-  <body>
-    <h1>Hello AngularJS! <br /> I'm thrilled to start this course..</h1>
-    <h2>Lesson 1: High Cohesion and Loose Coupling</h2>
-
-    <div id="nameCalculator">
-      <div>
-        Your Name: <input type="text" id="name">
-      </div>
-      <div id="output"></div>
-    </div>
-  </body>
-</html> -->
-
 <!DOCTYPE html>
-<html ng-app="myFirstApp">
+<html>
   <head>
     <meta charset="utf-8">
-    <!-- Script tags are processed in order of appearance.
-    angular.min.js is used inside app.js. Therefore, mentioned first.-->
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
-    <title>My first AngularJS App</title>
+    <style body {font-size: 1.5em;} ></style>
+    <title>Name Calc</title>
   </head>
-  <body>
-    <h2>This is my very first AngularJS App</h2>
-    <div ng-controller="myFirstController">
-      {{sayHello()}}
-      <input type="text" ng-model="name">
-      Inner value in the "name" field is {{name}}.
+  <body ng-app="nameCalculatorApp">
+
+    <h1>Name Calculator using AngularJS</h1>
+
+    <div ng-controller="nameController" id="mainDiv">
+      Type your name here:
+      <!-- adding an event using AngularJS - keyUp event -->
+      <input type="text" ng-model="name" ng-keyUp="displayTotal()">
+      <div>
+        Calculation of your name is:  {{ totalValue }}
+      </div>
     </div>
+
+    <!-- Finding Attributes and Retrieving Values -->
+    <script>
+      // var elem = document.getElementById('mainDiv');
+      // console.log(elem);
+      //
+      // console.log(elem.getAttribute('ng-controller'));
+
+      /* Querying a particular element with the given attribute.
+      Then retrieving the value. */
+      var elem2 = document.querySelector("[ng-app]");
+      console.log(elem2);
+      console.log(elem2.getAttribute('ng-app'));
+    </script>
 
   </body>
 </html>

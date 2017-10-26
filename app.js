@@ -1,24 +1,29 @@
-// IIFE - immediately invoked function expression
-// Purpose:  no local variables bleed into Global Scope.
-(function(){
-'use strict';   // used to restrict accidentally creating global variables. (e.g: x="hi";)
+(function (){
+'use strict';
 
-    // one particular object in global scope ==> angular
-    // 'myFirstApp'  -- name of our application
-    // []  -- any dependencies
-    // module function --  returns the module instance.
-    angular.module('myFirstApp', [])
+  angular.module('nameCalculatorApp', [])
+  .controller('nameController', function($scope){
 
-    .controller('myFirstController', function($scope){
-      // 'myFirstController'   -- name of the controller to manage a part of the view.
-      // function ()  -- implements the functionality for the controller.
-      // These are then hooked to the HTML file.
+    $scope.name = "";
+    $scope.totalValue = 0;
 
-        $scope.name = "Helini";  // "$" is reserved in AngularJS. $scope is a global variable/scope given.
-        $scope.sayHello = function(){
-          return "Hello there!!";
-        };
-    });
+    // only displays the numeric value.
+    $scope.displayTotal = function(){
+      var totalOfName = calculateNameChars($scope.name);
+      $scope.totalValue = totalOfName;
+    }
 
+    // just calculates the numeric value of a string.
+    // Example of passing a "string" parameter.
+    function calculateNameChars(string){
+      var numericVal = 0;
+
+      for(var i=0; i < string.length; i++){
+        numericVal += string.charCodeAt(i);
+      }
+      return numericVal;
+    }
+
+  });
 
 })();
