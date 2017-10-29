@@ -1,38 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ExpressionApp">
   <head>
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
-    <style body {font-size: 1.5em;} ></style>
-    <title>Name Calc</title>
+    <title>Expressions and Interpolation</title>
   </head>
-  <body ng-app="nameCalculatorApp">
+  <body>
+    <h2>Expressions and Interpolation</h2>
+    <div ng-controller="ExpController">
+      {{name}}, your message is: <br>
+      {{ sayMessage() }}
 
-    <h1>Name Calculator using AngularJS</h1>
+      <!--
+      {{ }} :  this is considered a placeholder
+      placeholder : these are usually "Expressions"
+      Interpolation : replacing expressions with values in runtime.
+      -->
 
-    <div ng-controller="nameController" id="mainDiv">
-      Type your name here:
-      <!-- adding an event using AngularJS - keyUp event -->
-      <input type="text" ng-model="name" ng-keyUp="displayTotal()">
+      <!-- using Expressions in the path of an image tag. -->
       <div>
-        Calculation of your name is:  {{ totalValue }}
+        <button ng-click="feedPooh()">Feed Winnie the Pooh!</button>
+        <img ng-src="images/{{stateOfBeing}}.png">
       </div>
     </div>
 
-    <!-- Finding Attributes and Retrieving Values -->
-    <script>
-      // var elem = document.getElementById('mainDiv');
-      // console.log(elem);
-      //
-      // console.log(elem.getAttribute('ng-controller'));
-
-      /* Querying a particular element with the given attribute.
-      Then retrieving the value. */
-      var elem2 = document.querySelector("[ng-app]");
-      console.log(elem2);
-      console.log(elem2.getAttribute('ng-app'));
-    </script>
 
   </body>
 </html>

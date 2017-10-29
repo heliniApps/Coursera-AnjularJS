@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style body {font-size: 1.5em;} ></style>
+    <title>Name Calc</title>
+  </head>
+  <body ng-app="nameCalculatorApp">
+
+    <h1>Name Calculator using AngularJS</h1>
+
+    <div ng-controller="nameController" id="mainDiv">
+      Type your name here:
+      <!-- adding an event using AngularJS - keyUp event -->
+      <input type="text" ng-model="name" ng-keyUp="displayTotal()">
+      <div>
+        Calculation of your name is:  {{ totalValue }}
+      </div>
+    </div>
+
+    <!-- Finding Attributes and Retrieving Values -->
+    <script>
+      // var elem = document.getElementById('mainDiv');
+      // console.log(elem);
+      //
+      // console.log(elem.getAttribute('ng-controller'));
+
+      /* Querying a particular element with the given attribute.
+      Then retrieving the value. */
+      var elem2 = document.querySelector("[ng-app]");
+      console.log(elem2);
+      console.log(elem2.getAttribute('ng-app'));
+    </script>
+
+  </body>
+</html>

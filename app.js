@@ -1,29 +1,24 @@
-(function (){
+(function(){
 'use strict';
 
-  angular.module('nameCalculatorApp', [])
-  .controller('nameController', function($scope){
+  angular.module('ExpressionApp', [])
+  .controller('ExpController', ExpController);
 
-    $scope.name = "";
-    $scope.totalValue = 0;
+  ExpController.$inject = ['$scope'];
 
-    // only displays the numeric value.
-    $scope.displayTotal = function(){
-      var totalOfName = calculateNameChars($scope.name);
-      $scope.totalValue = totalOfName;
-    }
+  function ExpController($scope){
+    $scope.name = "Helini";
 
-    // just calculates the numeric value of a string.
-    // Example of passing a "string" parameter.
-    function calculateNameChars(string){
-      var numericVal = 0;
+    $scope.sayMessage = function (){
+      return "I like jogging and swimming!!";
+    };
 
-      for(var i=0; i < string.length; i++){
-        numericVal += string.charCodeAt(i);
-      }
-      return numericVal;
-    }
+// Image flipping using expressions code.
+    $scope.stateOfBeing = "pooh-hungry";
 
-  });
+    $scope.feedPooh = function (){
+      $scope.stateOfBeing = "pooh-happy";
+    };
+  }
 
 })();
